@@ -27,3 +27,22 @@ jobs:
             exit 1
           fi
           echo "Generated deep link: ${{ steps.basic_test.outputs.goose_deep_link }}"
+
+      # Test Short.io link generation
+      - name: Test Short.io Link Generation
+        uses: aaalaniz/goose-recipe-shortener@main
+        id: shortio_test
+        with:
+          recipe_path: example-recipe.yaml
+          short_url_path: example-recipe
+          shortio_api_key: ${{ secrets.SHORTIO_API_KEY }}
+          shortio_domain: ${{ secrets.SHORTIO_DOMAIN }}
+
+      # Verify the Short.io link output exists
+      - name: Verify Short.io Link Output
+        run: |
+          if [ -z "${{ steps.shortio_test.outputs.goose_short_link }}" ]; then
+            echo "Short.io link was not generated"
+            exit 1
+          fi
+          echo "Generated Short.io link: ${{ steps.shortio_test.outputs.goose_short_link }}"
