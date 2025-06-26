@@ -34,6 +34,7 @@ jobs:
         id: shortio_test
         with:
           recipe_path: example-recipe.yaml
+          shortener: shortio
           short_url_path: example-recipe
           shortio_api_key: ${{ secrets.SHORTIO_API_KEY }}
           shortio_domain: ${{ secrets.SHORTIO_DOMAIN }}
@@ -41,7 +42,7 @@ jobs:
       # Verify the Short.io link output exists
       - name: Verify Short.io Link Output
         run: |
-          if [ -z "${{ steps.shortio_test.outputs.goose_short_link }}" ]; then
+          if [ -z "${{ steps.shortio_test.outputs.short_url }}" ]; then
             echo "Short.io link was not generated"
             exit 1
           fi
