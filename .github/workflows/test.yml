@@ -1,0 +1,29 @@
+name: Test Goose Recipe Shortener
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Test basic deep link generation without shortening
+      - name: Test Deep Link Generation
+        uses: aaalaniz/goose-recipe-shortener@main
+        id: basic_test
+        with:
+          recipe_path: './example-recipe.yaml'
+
+      # Verify the output exists
+      - name: Verify Deep Link Output
+        run: |
+          if [ -z "${{ steps.basic_test.outputs.goose_deep_link }}" ]; then
+            echo "Deep link was not generated"
+            exit 1
+          fi
+          echo "Generated deep link: ${{ steps.basic_test.outputs.goose_deep_link }}"
