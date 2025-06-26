@@ -46,4 +46,4 @@ jobs:
             echo "Short.io link was not generated"
             exit 1
           fi
-          echo "Generated Short.io link: ${{ steps.shortio_test.outputs.goose_short_link }}"
+          echo "Generated Short.io link: ${{ steps.shortio_test.outputs.short_url }}"
