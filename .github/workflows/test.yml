@@ -17,7 +17,7 @@ jobs:
         uses: aaalaniz/goose-recipe-shortener@main
         id: basic_test
         with:
-          recipe_path: './example-recipe.yaml'
+          recipe_path: '${{ github.workspace }}/example-recipe.yaml'
 
       # Verify the output exists
       - name: Verify Deep Link Output
