@@ -1,6 +1,6 @@
 steps:
   - label: ":goose: Deep Link (example-recipe.yaml)"
     plugins:
-      - ssh://git@github.com:aaalaniz/goose-recipe-shortener.git#main:
+      - ssh://git@github.com/aaalaniz/goose-recipe-shortener.git#main:
           recipe_path: example-recipe.yaml
 
