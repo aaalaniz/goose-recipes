@@ -1,0 +1,6 @@
+steps:
+  - label: ":goose: Deep Link (example-recipe.yaml)"
+    plugins:
+      - aaalaniz/goose-recipe-shortener#main:
+          recipe_path: example-recipe.yaml
+
