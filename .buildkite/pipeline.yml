@@ -1,5 +1,5 @@
 steps:
-  - label: ":goose: Deep Link (example-recipe.yaml)"
+  - label: ":goose: Generate Deep Link"
     plugins:
       - https://github.com/aaalaniz/goose-recipe-shortener.git#main:
           recipe_path: example-recipe.yaml
